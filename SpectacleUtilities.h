@@ -46,4 +46,10 @@
 
 + (NSInteger)currentWorkspace;
 
++ (NSInteger)numberOfWorkspaces;
+
+#pragma mark -
+
++ (NSInteger)frontMostWindowNumber;
+
 @end

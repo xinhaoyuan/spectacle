@@ -29,6 +29,9 @@
 #define SpectacleWindowActionMoveToTopDisplay         @"MoveToTopDisplay"
 #define SpectacleWindowActionMoveToBottomDisplay      @"MoveToBottomDisplay"
 
+#define SpectacleWindowActionMoveToNextSpace          @"MoveToNextSpace"
+#define SpectacleWindowActionMoveToPreviousSpace      @"MoveToPreviousSpace"
+
 #define SpectacleWindowActionMoveToNextThird          @"MoveToNextThird"
 #define SpectacleWindowActionMoveToPreviousThird      @"MoveToPreviousThird"
 
@@ -38,6 +41,11 @@
 #pragma mark -
 
 #define SpectacleWindowActionHistorySize              10
+
+#pragma mark -
+
+#define SpectacleLowProcessSerialNumber               @"NSApplicationProcessSerialNumberLow"
+#define SpectacleHighProcessSerialNumber              @"NSApplicationProcessSerialNumberHigh"
 
 #pragma mark -
 

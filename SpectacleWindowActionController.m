@@ -97,6 +97,16 @@
 
 #pragma mark -
 
+- (IBAction)moveFrontMostWindowToNextSpace: (id)sender {
+    [myWindowPositionManager moveFrontMostWindowToNextSpace];
+}
+
+- (IBAction)moveFrontMostWindowToPreviousSpace: (id)sender {
+    [myWindowPositionManager moveFrontMostWindowToPreviousSpace];
+}
+
+#pragma mark -
+
 - (IBAction)moveFrontMostWindowToNextThird: (id)sender {
     [myWindowPositionManager moveFrontMostWindowWithAction: SpectacleWindowActionNextThird];
 }

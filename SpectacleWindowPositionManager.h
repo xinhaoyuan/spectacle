@@ -36,6 +36,12 @@ typedef enum {
 
 #pragma mark -
 
+- (void)moveFrontMostWindowToNextSpace;
+
+- (void)moveFrontMostWindowToPreviousSpace;
+
+#pragma mark -
+
 - (void)undoLastWindowAction;
 
 - (void)redoLastWindowAction;

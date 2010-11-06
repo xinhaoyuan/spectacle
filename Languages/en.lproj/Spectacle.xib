@@ -1295,6 +1295,32 @@
 						<reference key="NSOnImage" ref="229763992"/>
 						<reference key="NSMixedImage" ref="909111550"/>
 					</object>
+					<object class="NSMenuItem" id="942723925">
+						<reference key="NSMenu" ref="257670533"/>
+						<string key="NSTitle">Next Space</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="229763992"/>
+						<reference key="NSMixedImage" ref="909111550"/>
+					</object>
+					<object class="NSMenuItem" id="236484392">
+						<reference key="NSMenu" ref="257670533"/>
+						<string key="NSTitle">Previous Space</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="229763992"/>
+						<reference key="NSMixedImage" ref="909111550"/>
+					</object>
+					<object class="NSMenuItem" id="878411375">
+						<reference key="NSMenu" ref="257670533"/>
+						<bool key="NSIsDisabled">YES</bool>
+						<bool key="NSIsSeparator">YES</bool>
+						<string key="NSTitle"/>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="229763992"/>
+						<reference key="NSMixedImage" ref="909111550"/>
+					</object>
 					<object class="NSMenuItem" id="249248216">
 						<reference key="NSMenu" ref="257670533"/>
 						<string key="NSTitle">Preferences...</string>
@@ -2029,6 +2055,22 @@
 						<reference key="destination" ref="609285721"/>
 					</object>
 					<int key="connectionID">1150</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">moveFrontMostWindowToNextSpace:</string>
+						<reference key="source" ref="606044648"/>
+						<reference key="destination" ref="942723925"/>
+					</object>
+					<int key="connectionID">1172</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">moveFrontMostWindowToPreviousSpace:</string>
+						<reference key="source" ref="606044648"/>
+						<reference key="destination" ref="236484392"/>
+					</object>
+					<int key="connectionID">1173</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -3040,6 +3082,9 @@
 							<reference ref="378643675"/>
 							<reference ref="249248216"/>
 							<reference ref="1067260792"/>
+							<reference ref="878411375"/>
+							<reference ref="942723925"/>
+							<reference ref="236484392"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -3078,6 +3123,21 @@
 						<reference key="object" ref="1067260792"/>
 						<reference key="parent" ref="257670533"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1169</int>
+						<reference key="object" ref="878411375"/>
+						<reference key="parent" ref="257670533"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1170</int>
+						<reference key="object" ref="942723925"/>
+						<reference key="parent" ref="257670533"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1171</int>
+						<reference key="object" ref="236484392"/>
+						<reference key="parent" ref="257670533"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3091,6 +3151,9 @@
 				<string key="1164.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1165.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1166.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1169.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1170.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1171.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="124.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="125.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="126.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3245,7 +3308,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1168</int>
+			<int key="maxID">1173</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3362,6 +3425,8 @@
 						<string key="moveFrontMostWindowToLeftHalf:">id</string>
 						<string key="moveFrontMostWindowToLowerLeft:">id</string>
 						<string key="moveFrontMostWindowToLowerRight:">id</string>
+						<string key="moveFrontMostWindowToNextThird:">id</string>
+						<string key="moveFrontMostWindowToPreviousThird:">id</string>
 						<string key="moveFrontMostWindowToRightDisplay:">id</string>
 						<string key="moveFrontMostWindowToRightHalf:">id</string>
 						<string key="moveFrontMostWindowToTopDisplay:">id</string>
@@ -3402,6 +3467,14 @@
 						</object>
 						<object class="IBActionInfo" key="moveFrontMostWindowToLowerRight:">
 							<string key="name">moveFrontMostWindowToLowerRight:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="moveFrontMostWindowToNextThird:">
+							<string key="name">moveFrontMostWindowToNextThird:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="moveFrontMostWindowToPreviousThird:">
+							<string key="name">moveFrontMostWindowToPreviousThird:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="moveFrontMostWindowToRightDisplay:">

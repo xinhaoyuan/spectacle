@@ -1,6 +1,8 @@
 #import "SpectacleUtilities.h"
 #import "SpectacleConstants.h"
 
+#import "CoreDockPrivate.h"
+
 @interface SpectacleUtilities (SpectacleUtilitiesPrivate)
 
 + (void)updateHotKey: (ZeroKitHotKey *)hotKey withPotentiallyNewDefaultHotKey: (ZeroKitHotKey *)defaultHotKey;
@@ -131,6 +133,10 @@
         selector = @selector(moveFrontMostWindowToTopDisplay:);
     } else if ([name isEqualToString: SpectacleWindowActionMoveToBottomDisplay]) {
         selector = @selector(moveFrontMostWindowToBottomDisplay:);
+    } else if ([name isEqualToString: SpectacleWindowActionMoveToNextSpace]) {
+        selector = @selector(moveFrontMostWindowToNextSpace:);
+    } else if ([name isEqualToString: SpectacleWindowActionMoveToPreviousSpace]) {
+        selector = @selector(moveFrontMostWindowToPreviousSpace:);
     } else if ([name isEqualToString: SpectacleWindowActionMoveToNextThird]) {
         selector = @selector(moveFrontMostWindowToNextThird:);
     } else if ([name isEqualToString: SpectacleWindowActionMoveToPreviousThird]) {
@@ -167,6 +173,51 @@
     CFRelease(windowDescriptions);
     
     return currentWorkspace;
+}
+
++ (NSInteger)numberOfWorkspaces {
+    NSInteger numberOfWorkspaces = -1;
+    
+    if (CoreDockGetWorkspacesEnabled()) {
+        int rows = -1;
+        int columns = -1;
+        
+        CoreDockGetWorkspacesCount(&rows, &columns);
+        
+        if ((rows > -1) && (columns > -1)) {
+            numberOfWorkspaces = rows * columns;
+        }
+    }
+    
+    return numberOfWorkspaces;
+}
+
+#pragma mark -
+
++ (NSInteger)frontMostWindowNumber {
+    NSDictionary *activeApplication = [[NSWorkspace sharedWorkspace] activeApplication];
+    UInt32 lowLongOfPSN = [[activeApplication objectForKey: SpectacleLowProcessSerialNumber] longValue];
+    UInt32 highLongOfPSN = [[activeApplication objectForKey: SpectacleHighProcessSerialNumber] longValue];
+    ProcessSerialNumber activeApplicationPSN = { highLongOfPSN, lowLongOfPSN };
+    CFArrayRef windowList = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
+    ProcessSerialNumber currentPSN = { kNoProcess, kNoProcess };
+    NSNumber *frontMostWindowNumber = nil;
+    
+    for (NSMutableDictionary *window in (NSArray *)windowList) {
+        int pid = [[window objectForKey: (id)kCGWindowOwnerPID] intValue];
+        
+        GetProcessForPID(pid, &currentPSN);
+        
+        if((currentPSN.lowLongOfPSN == activeApplicationPSN.lowLongOfPSN) && (currentPSN.highLongOfPSN == activeApplicationPSN.highLongOfPSN)) {
+            frontMostWindowNumber = [[[window objectForKey: (id)kCGWindowNumber] retain] autorelease];
+            
+            break;
+        }
+    }
+    
+    CFRelease(windowList);
+    
+    return [frontMostWindowNumber integerValue];
 }
 
 @end

@@ -4,6 +4,8 @@
 #import "SpectacleUtilities.h"
 #import "SpectacleConstants.h"
 
+#import "CGSPrivate.h"
+
 #define MovingToCenterRegionOfDisplay(action) (action == SpectacleWindowActionCenter)
 #define MovingToTopRegionOfDisplay(action) ((action == SpectacleWindowActionTopHalf) || (action == SpectacleWindowActionUpperLeft) || (action == SpectacleWindowActionUpperRight))
 #define MovingToUpperOrLowerLeftOfDisplay(action) ((action == SpectacleWindowActionUpperLeft) || (action == SpectacleWindowActionLowerLeft))
@@ -24,6 +26,11 @@
 #define CurrentRedoHistory [myRedoHistory objectForKey: CurrentWorkspaceKey]
 
 #pragma mark -
+
+typedef enum {
+    SpectacleWorkspaceDirectionNext,
+    SpectacleWorkspaceDirectionPrevious
+} SpectacleWorkspaceDirection;
 
 @interface SpectacleWindowPositionManager (SpectacleWindowPositionManagerPrivate)
 
@@ -66,6 +73,10 @@
 - (void)addHistoryItemToUndoHistory: (SpectacleHistoryItem *)historyItem;
 
 - (void)addHistoryItemToRedoHistory: (SpectacleHistoryItem *)historyItem;
+
+#pragma mark -
+
+- (void)moveFrontMostWindowToWorkspaceInDirection: (SpectacleWorkspaceDirection)direction;
 
 @end
 
@@ -160,6 +171,16 @@ static SpectacleWindowPositionManager *sharedInstance = nil;
     frontMostWindowRect.origin.y = FlipVerticalOriginOfRectInRect(frontMostWindowRect, frameOfScreen);
     
     [self moveWindowRect: frontMostWindowRect frameOfScreen: frameOfScreen visibleFrameOfScreen: visibleFrameOfScreen frontMostWindowElement: frontMostWindowElement action: action];
+}
+
+#pragma mark -
+
+- (void)moveFrontMostWindowToNextSpace {
+    [self moveFrontMostWindowToWorkspaceInDirection: SpectacleWorkspaceDirectionNext];
+}
+
+- (void)moveFrontMostWindowToPreviousSpace {
+    [self moveFrontMostWindowToWorkspaceInDirection: SpectacleWorkspaceDirectionPrevious];
 }
 
 #pragma mark -
@@ -477,6 +498,36 @@ static SpectacleWindowPositionManager *sharedInstance = nil;
     }
     
     [CurrentRedoHistory addObject: historyItem];
+}
+
+#pragma mark -
+
+- (void)moveFrontMostWindowToWorkspaceInDirection: (SpectacleWorkspaceDirection)direction {
+    NSInteger currentWorkspace = [SpectacleUtilities currentWorkspace];
+    NSInteger workspace;
+    CGSConnection connection;
+    CGSWindow frontMostWindow;
+    CGError error;
+    
+    if (direction == SpectacleWorkspaceDirectionNext) {
+        workspace = currentWorkspace + 1;
+    } else {
+        workspace = currentWorkspace - 1;
+    }
+    
+    if ((workspace < 1) || (workspace > [SpectacleUtilities numberOfWorkspaces])) {
+        NSBeep();
+        
+        return;
+    }
+    
+    connection = _CGSDefaultConnection();
+    frontMostWindow = [SpectacleUtilities frontMostWindowNumber];
+    error = CGSMoveWorkspaceWindowList(connection, &frontMostWindow, 1, workspace);
+    
+    if (error != 0) {
+        NSBeep();
+    }
 }
 
 @end

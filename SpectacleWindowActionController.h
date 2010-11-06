@@ -51,6 +51,12 @@
 
 #pragma mark -
 
+- (IBAction)moveFrontMostWindowToNextSpace: (id)sender;
+
+- (IBAction)moveFrontMostWindowToPreviousSpace: (id)sender;
+
+#pragma mark -
+
 - (IBAction)moveFrontMostWindowToNextThird: (id)sender;
 
 - (IBAction)moveFrontMostWindowToPreviousThird: (id)sender;
