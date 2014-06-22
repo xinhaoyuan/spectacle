@@ -67,6 +67,8 @@
         SpectacleHotKeyManager *manager = SpectacleHotKeyManager.sharedManager;
         manager.hotKeysEnabled = !manager.hotKeysEnabled;
         
+        [NSNotificationCenter.defaultCenter postNotificationName: SpectacleHotKeyChangedNotification object: self];
+        
         return;
     }
     

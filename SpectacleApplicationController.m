@@ -53,6 +53,7 @@
     BOOL automaticallyChecksForUpdates = [userDefaults boolForKey: SpectacleAutomaticUpdateCheckEnabledPreference];
     BOOL statusItemEnabled = [userDefaults boolForKey: SpectacleStatusItemEnabledPreference];
 
+    _statusItem = nil;
     if (statusItemEnabled) {
         [self createStatusItem];
     }
@@ -158,11 +159,13 @@
 
 - (void)destroyStatusItem {
     [NSStatusBar.systemStatusBar removeStatusItem: _statusItem];
+    _statusItem = nil;
 }
 
 #pragma mark -
 
 - (void)updateHotKeyMenuItems {
+    NSLog(@"Update!");
     SpectacleHotKeyManager *hotKeyManager = SpectacleHotKeyManager.sharedManager;
     ZKHotKeyTranslator *hotKeyTranslator = ZKHotKeyTranslator.sharedTranslator;
     for (NSString *hotKeyName in _hotKeyMenuItems.allKeys) {
@@ -175,6 +178,17 @@
             hotKeyMenuItem.keyEquivalent = @"";
             hotKeyMenuItem.keyEquivalentModifierMask = 0;
         }
+    }
+    
+    if (_statusItem != nil) {
+        NSString *icon = hotKeyManager.hotKeysEnabled ?
+        SpectacleStatusItemIcon : SpectacleStatusItemIconDisabled;
+        NSString *icon_alternate = hotKeyManager.hotKeysEnabled ?
+        SpectacleAlternateStatusItemIcon :
+        SpectacleAlternateStatusItemIconDisabled;
+        
+        _statusItem.image = [[NSImage alloc] initWithContentsOfFile: [NSBundle.mainBundle pathForImageResource: icon]];
+        _statusItem.alternateImage = [[NSImage alloc] initWithContentsOfFile: [NSBundle.mainBundle pathForImageResource: icon_alternate]];
     }
 }
 

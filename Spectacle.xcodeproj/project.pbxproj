@@ -44,6 +44,10 @@
 		2DCDE1AE194FDB74008C4D5C /* Security & Privacy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DCDE1AC194FDB74008C4D5C /* Security & Privacy@2x.png */; };
 		2DF03CEE148684E000D09E90 /* Spectacle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2DF03CED148684E000D09E90 /* Spectacle.icns */; };
 		6F10BDB719AD4A0E9E05A451 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3ED82115CF4D7AB8FC8947 /* libPods.a */; };
+		BA4DD3BE1957409400F2F296 /* Spectacle Alternate Status Item Disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = BA4DD3BA1957409400F2F296 /* Spectacle Alternate Status Item Disabled.png */; };
+		BA4DD3BF1957409400F2F296 /* Spectacle Alternate Status Item Disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA4DD3BB1957409400F2F296 /* Spectacle Alternate Status Item Disabled@2x.png */; };
+		BA4DD3C01957409400F2F296 /* Spectacle Status Item Disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = BA4DD3BC1957409400F2F296 /* Spectacle Status Item Disabled.png */; };
+		BA4DD3C11957409400F2F296 /* Spectacle Status Item Disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA4DD3BD1957409400F2F296 /* Spectacle Status Item Disabled@2x.png */; };
 		C92F241816937C63000D94AB /* Spectacle Status Item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C92F241716937C63000D94AB /* Spectacle Status Item@2x.png */; };
 		C92F241A16937CA3000D94AB /* Spectacle Alternate Status Item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C92F241916937CA3000D94AB /* Spectacle Alternate Status Item@2x.png */; };
 /* End PBXBuildFile section */
@@ -119,6 +123,10 @@
 		2DF03CED148684E000D09E90 /* Spectacle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Spectacle.icns; path = Resources/Images/Icons/Spectacle.icns; sourceTree = "<group>"; };
 		32DBCFA20370C41700C91783 /* Spectacle.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spectacle.pch; sourceTree = "<group>"; };
 		AD3ED82115CF4D7AB8FC8947 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA4DD3BA1957409400F2F296 /* Spectacle Alternate Status Item Disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spectacle Alternate Status Item Disabled.png"; path = "Resources/Images/Spectacle Alternate Status Item Disabled.png"; sourceTree = "<group>"; };
+		BA4DD3BB1957409400F2F296 /* Spectacle Alternate Status Item Disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spectacle Alternate Status Item Disabled@2x.png"; path = "Resources/Images/Spectacle Alternate Status Item Disabled@2x.png"; sourceTree = "<group>"; };
+		BA4DD3BC1957409400F2F296 /* Spectacle Status Item Disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spectacle Status Item Disabled.png"; path = "Resources/Images/Spectacle Status Item Disabled.png"; sourceTree = "<group>"; };
+		BA4DD3BD1957409400F2F296 /* Spectacle Status Item Disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spectacle Status Item Disabled@2x.png"; path = "Resources/Images/Spectacle Status Item Disabled@2x.png"; sourceTree = "<group>"; };
 		C388EE6A7EA34BECB02EF691 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C92F241716937C63000D94AB /* Spectacle Status Item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spectacle Status Item@2x.png"; path = "Resources/Images/Spectacle Status Item@2x.png"; sourceTree = "<group>"; };
 		C92F241916937CA3000D94AB /* Spectacle Alternate Status Item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spectacle Alternate Status Item@2x.png"; path = "Resources/Images/Spectacle Alternate Status Item@2x.png"; sourceTree = "<group>"; };
@@ -247,6 +255,10 @@
 		0747DAF21183AB1B00F75DD2 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				BA4DD3BA1957409400F2F296 /* Spectacle Alternate Status Item Disabled.png */,
+				BA4DD3BB1957409400F2F296 /* Spectacle Alternate Status Item Disabled@2x.png */,
+				BA4DD3BC1957409400F2F296 /* Spectacle Status Item Disabled.png */,
+				BA4DD3BD1957409400F2F296 /* Spectacle Status Item Disabled@2x.png */,
 				2DF03CED148684E000D09E90 /* Spectacle.icns */,
 				07B6B754148B1654003F924A /* Spectacle Alternate Status Item.png */,
 				C92F241916937CA3000D94AB /* Spectacle Alternate Status Item@2x.png */,
@@ -429,7 +441,10 @@
 			files = (
 				2DA85CA316B47F540057CEAA /* BlacklistedApplications.plist in Resources */,
 				2D736756149ADB2C00837D7D /* Credits.rtf in Resources */,
+				BA4DD3BE1957409400F2F296 /* Spectacle Alternate Status Item Disabled.png in Resources */,
+				BA4DD3C11957409400F2F296 /* Spectacle Status Item Disabled@2x.png in Resources */,
 				2D8DA04D147E0FA0003BE1D3 /* Defaults.plist in Resources */,
+				BA4DD3C01957409400F2F296 /* Spectacle Status Item Disabled.png in Resources */,
 				2D5CCCE915E96F740009CC43 /* dsa_public.pem in Resources */,
 				2D8DA04E147E0FA7003BE1D3 /* HotKeyNames.plist in Resources */,
 				2D73677B149ADB7400837D7D /* InfoPlist.strings in Resources */,
@@ -445,6 +460,7 @@
 				07B6B753148B12A0003F924A /* Spectacle Status Item.png in Resources */,
 				C92F241816937C63000D94AB /* Spectacle Status Item@2x.png in Resources */,
 				2D73675C149ADB4500837D7D /* SpectaclePreferencesWindow.xib in Resources */,
+				BA4DD3BF1957409400F2F296 /* Spectacle Alternate Status Item Disabled@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

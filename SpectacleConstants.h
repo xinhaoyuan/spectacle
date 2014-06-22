@@ -72,6 +72,8 @@
 
 #define SpectacleStatusItemIcon                          @"Spectacle Status Item"
 #define SpectacleAlternateStatusItemIcon                 @"Spectacle Alternate Status Item"
+#define SpectacleStatusItemIconDisabled                  @"Spectacle Status Item Disabled"
+#define SpectacleAlternateStatusItemIconDisabled         @"Spectacle Alternate Status Item Disabled"
 
 #pragma mark -
 
